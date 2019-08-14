@@ -1,0 +1,75 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+/**
+ * jQuery.textareaCounter
+ * Version 1.0
+ * Copyright (c) 2011 c.bavota - http://bavotasan.com
+ * Dual licensed under MIT and GPL.
+ * Date: 10/20/2011
+**/
+(function($){
+	$.fn.textareaCounter = function(options) {
+		// setting the defaults
+		// $("textarea").textareaCounter({ limit: 100 });
+		var defaults = {
+			limit: 350
+		};
+			
+		var options = $.extend(defaults, options);
+ 
+		// and the plugin begins
+		return this.each(function() {
+			var obj, text, wordcount, limited;
+			
+			obj = $(this);
+			console.log(obj.attr('id'));
+			if(obj.attr('id') === "count-words") {
+				obj.after('<span style="font-size: 18px; clear: both; margin-top: 3px; display: block;" id="counter-text">Word count: 0 </span>');
+
+				obj.keyup(function() {
+				    text = obj.val();
+				    if(text === "") {
+				    	wordcount = 0;
+				    } else {
+					    wordcount = $.trim(text).split(/\s/).length;
+					}
+				    if(wordcount > options.limit) {
+				        $("#counter-text").html('<span style="color: #DD0000;">0 words left</span>');
+						limited = $.trim(text).split(" ", options.limit);
+						limited = limited.join(" ");
+						$(this).val(limited);
+				    } else {
+				        $("#counter-text").html('Word count: <span style="font-size: 18px;">' + wordcount + '</span>');
+				    } 
+				});
+			}
+		});
+	};
+})(jQuery);
+</script>
+</head>
+
+<body>
+	<header class="header">
+		<p>Writing task</p>
+	</header>
+	<main class="main">
+		<div class="question">
+			<textarea rows="15" cols="60"></textarea>
+		</div>
+		<div class="answer">
+			<textarea id="count-words" rows="37" cols="75"></textarea>
+
+			<script type="text/javascript">
+			$("textarea").textareaCounter();
+			</script>
+		</div>
+	</main>
+	<footer class="footer">
+    	<p>Button for saving text</p>
+    </footer>
+</body>
+</html>
