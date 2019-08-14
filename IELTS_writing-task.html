@@ -2,6 +2,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="js-script.js"></script>
 <script type="text/javascript">
 /**
  * jQuery.textareaCounter
@@ -15,7 +16,7 @@
 		// setting the defaults
 		// $("textarea").textareaCounter({ limit: 100 });
 		var defaults = {
-			limit: 350
+			limit: 280
 		};
 			
 		var options = $.extend(defaults, options);
@@ -69,7 +70,9 @@
 		</div>
 	</main>
 	<footer class="footer">
-    	<p>Button for saving text</p>
+		<i>Filename: </i>
+		<input id="filename" src="text">
+    	<button onclick="download('text/plain')">Save essay to file</button>
     </footer>
 </body>
 </html>
