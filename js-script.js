@@ -15,4 +15,19 @@ function download(type) {
             window.URL.revokeObjectURL(url);  
         }, 0); 
     }
+};
+
+
+function startTimer(count) {
+    jQuery('#timer').html('<span>' + count + ' minutes left </span>');
+    window.setInterval(function(){
+          count = count - 1;
+          if (count > 5) {
+            jQuery('#timer').html('<span>' + count + ' minutes left </span>');
+          }
+          else if (count >= 0) {
+            jQuery('#timer').html('<span style="color: #f64a46;">' + 
+                count + ' minutes left </span>');
+          }
+          }, 60000);   //one per minute
 }

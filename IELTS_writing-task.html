@@ -56,6 +56,8 @@
 <body>
 	<header class="header">
 		<p>Writing task</p>
+		<button onclick="startTimer(40)">Start timer</button>
+		<div id="timer">
 	</header>
 	<main class="main">
 		<div class="question">
@@ -70,7 +72,7 @@
 		</div>
 	</main>
 	<footer class="footer">
-		<i>Filename: </i>
+		<span>Filename: </span>
 		<input id="filename" src="text">
     	<button onclick="download('text/plain')">Save essay to file</button>
     </footer>
