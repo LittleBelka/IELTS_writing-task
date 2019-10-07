@@ -100,3 +100,16 @@ textarea:focus {
   font-size: 18px;
   margin-left: 10px;
 }
+
+
+/*__________special for IELTS_listening____________*/
+
+.listening-list input {
+  font-size: 20px;
+  width: 450px;
+  margin-bottom: 10px;
+}
+
+.first-answer {
+  margin-top: 10px;
+}
