@@ -31,3 +31,14 @@ function startTimer(count) {
           }
           }, 60000);   //one per minute
 }
+
+
+function highlight(elem, clr) {
+  if (elem.style.color == clr) {
+    elem.style.color = 'black';
+    elem.style.background = '#f5f5f5';
+  } else {
+    elem.style.color = clr;
+    elem.style.background = clr;
+  }
+}
